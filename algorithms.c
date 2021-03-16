@@ -8,9 +8,9 @@ float gradient[4] = {0};
 float hessian[4][4] = {0};
 
 float inv_hessian[4][4] = {  { 0.000841 ,-0.011363 , 0.043350 ,-0.041666},
-							 {-0.011363 , 0.156385 ,-0.612012 , 0.607142},
-							 { 0.043350 ,-0.612012 , 2.485509 ,-2.601190},
-							 {-0.041666 , 0.607142 ,-2.601190 , 3.035714}	};
+			     {-0.011363 , 0.156385 ,-0.612012 , 0.607142},
+			     { 0.043350 ,-0.612012 , 2.485509 ,-2.601190},
+			     {-0.041666 , 0.607142 ,-2.601190 , 3.035714}  };
 float p [4] = {0};  
 
 // Pn = PNewton = -B^(-1)*gradient
@@ -55,41 +55,41 @@ void  makeGradient(float x, float y, float z,float w,float *gradient){
 
 	// --- df/dx ---
 	gradient[0] =    2*(x + y + z + w - 225.51)
-					+ 16*(8*x +  4*y + 2*z + w - 242.09)
-					+ 54*(27*x +  9*y + 3*z + w - 239.23)
-					+ 128*(64*x + 16*y + 4*z + w - 179.66)
-					+ 250*( 125*x + 25*y + 5*z + w - 117.60)
-					+ 432*( 216*x + 36*y + 6*z + w - 166.85)
-					+ 686*( 343*x + 49*y + 7*z + w - 181.49)
-					+ 1024*(512*x + 64*y + 8*z + w - 182.15);
+			+ 16*(8*x +  4*y + 2*z + w - 242.09)
+			+ 54*(27*x +  9*y + 3*z + w - 239.23)
+			+ 128*(64*x + 16*y + 4*z + w - 179.66)
+			+ 250*( 125*x + 25*y + 5*z + w - 117.60)
+			+ 432*( 216*x + 36*y + 6*z + w - 166.85)
+			+ 686*( 343*x + 49*y + 7*z + w - 181.49)
+			+ 1024*(512*x + 64*y + 8*z + w - 182.15);
 
 		
 		
 
-		// --- df/dy ---
+	// --- df/dy ---
 	gradient[1]  =     2*(x + y + z + w - 225.51)
-				      +   8*(8*x +  4*y + 2*z + w - 242.09)
-	 				  + 18*(27*x +  9*y + 3*z + w - 239.23)
-	 				  + 32*(64*x + 16*y + 4*z + w - 179.66)
-	 				+ 50*( 125*x + 25*y + 5*z + w - 117.60) 
-	                + 72*( 216*x + 36*y + 6*z + w - 166.85)
-	                + 98*( 343*x + 49*y + 7*z + w - 181.49)
-	                + 128*(512*x + 64*y + 8*z + w - 182.15);
+			 + 8*(8*x +  4*y + 2*z + w - 242.09)
+	 		 + 18*(27*x +  9*y + 3*z + w - 239.23)
+	 		 + 32*(64*x + 16*y + 4*z + w - 179.66)
+	 		 + 50*( 125*x + 25*y + 5*z + w - 117.60) 
+	                 + 72*( 216*x + 36*y + 6*z + w - 166.85)
+	                 + 98*( 343*x + 49*y + 7*z + w - 181.49)
+	                 + 128*(512*x + 64*y + 8*z + w - 182.15);
 
 	
 
-		// --- df/dz ---
-	gradient[2] =      2*(x + y + z + w - 225.51)
-					+ 4*(8*x +  4*y + 2*z + w - 242.09)
-					+ 6*(27*x +  9*y + 3*z + w - 239.23)
-					+ 8*(64*x + 16*y + 4*z + w - 179.66)
-					+ 10*(125*x + 25*y + 5*z + w - 117.60) 
-					+ 12*(216*x + 36*y + 6*z + w - 166.85)
-					+ 14*(343*x + 49*y + 7*z + w - 181.49)
-					+ 16*(512*x + 64*y + 8*z + w - 182.15);
+	// --- df/dz ---
+	gradient[2] =     2*(x + y + z + w - 225.51)
+			+ 4*(8*x +  4*y + 2*z + w - 242.09)
+			+ 6*(27*x +  9*y + 3*z + w - 239.23)
+			+ 8*(64*x + 16*y + 4*z + w - 179.66)
+			+ 10*(125*x + 25*y + 5*z + w - 117.60) 
+			+ 12*(216*x + 36*y + 6*z + w - 166.85)
+			+ 14*(343*x + 49*y + 7*z + w - 181.49)
+			+ 16*(512*x + 64*y + 8*z + w - 182.15);
 	
 
-		// --- df/dw ---
+	// --- df/dw ---
 	gradient[3] =     2*(x + y + z + w - 225.51)
 					+ 2*(8*x +  4*y + 2*z + w - 242.09)
 					+ 2*(27*x +  9*y + 3*z + w - 239.23)
@@ -104,8 +104,7 @@ void  makeGradient(float x, float y, float z,float w,float *gradient){
 }
 
 void printGradient(float *gradient){
-
-		printf("Gradient: \n df/dx = %f \n df/dy = %f \n df/dz = %f \n df/dw = %f\n",gradient[0],gradient[1],gradient[2],gradient[3]);
+	printf("Gradient: \n df/dx = %f \n df/dy = %f \n df/dz = %f \n df/dw = %f\n",gradient[0],gradient[1],gradient[2],gradient[3]);
 }
 
 void printHessian(){
@@ -165,12 +164,12 @@ float abs_ (float x){
 }
 
 void lineSearch(void){
-    float amax[2] = {0,2.5};        // keep ak low and ak high to reuse them
-	float a[2] = {0};
+    float amax[2] = {0,2.5};            // keep ak low and ak high to reuse them
+    float a[2] = {0};
     float x[4] = {-10,-10,-10,-10};	// start point is HERE!!!
     float next_x[4] = {0};
-    float f1,f2;					// f1 = f(xk +ak*pk)
-									// f2 = fx + c1*aj*gradientT*p
+    float f1,f2;			// f1 = f(xk +ak*pk), f2 = fx + c1*aj*gradientT*p
+									
     float c1 = 0.0001;
     float c2 = 0.9;
     float aj = 0;
@@ -184,23 +183,23 @@ void lineSearch(void){
     
     FILE *fp;
 	
-	if(	(fp = fopen("Newton.txt","w")) == NULL){ return ;}
+    if((fp = fopen("Newton.txt","w")) == NULL){ return ;}
 
-   while(i<50){ 
+    while(i<50){ 
        
         a[0]=amax[0]; 
-		a[1]=amax[1];
+	a[1]=amax[1];
 		
         makeGradient(x[0],x[1],x[2],x[3],gradient);
         makePn();
        
         printf("========================================================================================================\n\n");
         printf("-- i = %d\n",i);
-		printf(" x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f \n",x[0],x[1],x[2],x[3]);
+	printf(" x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f \n",x[0],x[1],x[2],x[3]);
         printf("gradient:\n");
         printGradient(gradient);
 
-		fprintf(fp,"%d. x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f , f = %f \n",i,x[0],x[1],x[2],x[3],f(x[0],x[1],x[2],x[3]));
+	fprintf(fp,"%d. x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f , f = %f \n",i,x[0],x[1],x[2],x[3],f(x[0],x[1],x[2],x[3]));
 
         printf("Df = %f , e = 0.1\n",sqrt( gradient[0]*gradient[0] + gradient[1]*gradient[1] + gradient[2]*gradient[2] + gradient[3]*gradient[3] ) );
         if( sqrt( gradient[0]*gradient[0] + gradient[1]*gradient[1] + gradient[2]*gradient[2] + gradient[3]*gradient[3] ) < 0.01  ){
@@ -224,16 +223,16 @@ void lineSearch(void){
             printf("next_gradient:\n");
             printGradient(next_gradient);
 
-			// f1 = f(xk +ak*pk)
+	    // f1 = f(xk +ak*pk)
             f1 = f(next_x[0],next_x[1],next_x[2],next_x[3]);
-			// f2 = fx + c1*aj*gradientT*p                  
+	    // f2 = fx + c1*aj*gradientT*p                  
             f2 = f(x[0],x[1],x[2],x[3]) + c1*aj*(gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3]);        
             printf("f1 = %f\n",f1);
             printf("f2 = %f , c1*aj*... = %f , c1 = %f , aj = %f , ... = %f\n",f2,c1*aj*(gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3]),c1,aj,gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3]);   
     
             if(f1>=f2 && abs_(f1-f2)>0.01){  //--- Armijo
                 printf("i am in if\n");
-				printf("f1-f2 = %f\n",abs_(f2-f1));
+		printf("f1-f2 = %f\n",abs_(f2-f1));
                 a[1] = aj;
                 printf("a[0] = %f , a[1] = %f\n",a[0],a[1]);
             }else{
@@ -241,22 +240,22 @@ void lineSearch(void){
                 // curvature = gradient(x+a*p)T*p
                 curvature = next_gradient[0]*p[0] + next_gradient[1]*p[1] + next_gradient[2]*p[2] + next_gradient[3]*p[3];                
 				
-				//curvature_limit = c2*gradient(x)T*p
-				curvature_limit = c2*( gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3] ); 
+		//curvature_limit = c2*gradient(x)T*p
+		curvature_limit = c2*( gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3] ); 
                 printf("curvature = %f , curvature_limit = %f \n",curvature,curvature_limit);
 
 
                 
                 if( (curvature>=curvature_limit && curvature<=-curvature_limit) || curvature==curvature_limit){       
                     printf("wolfe conditions ok\n");
-					printf("curvature = %f , curvature_limit = %f ,  curvature_limit = %f \n",curvature,curvature_limit,-curvature_limit);
+		    printf("curvature = %f , curvature_limit = %f ,  curvature_limit = %f \n",curvature,curvature_limit,-curvature_limit);
                     x[0] = next_x[0]; x[1] = next_x[1]; x[2] = next_x[2]; x[3] = next_x[3];
                     printf("next x: x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f \n",x[0],x[1],x[2],x[3]);
                     break;
                 }
                 if(curvature > -curvature_limit ){
                     printf("curvature > -curvature_limit = %f>%f => up\n",curvature,-curvature_limit);
-					a[1] = aj;                    
+		    a[1] = aj;                    
                     printf("a[0] = %f , a[1] = %f\n",a[0],a[1]);
                 }
                 if(curvature < curvature_limit){
@@ -286,9 +285,9 @@ void getDirection(float x[],float radious){
 
 	float gT_B_g;
 	float B_g[4] ={0};
-	float division;					// division = - gT*g/gT*B*g
+	float division;			    // division = - gT*g/gT*B*g
 	float pU[4] = {0};  		    // pU = division * gardient
-	float add[4]={0};				// add = pU + (t-1)(p-pU)
+	float add[4]={0};		    // add = pU + (t-1)(p-pU)
 	float p_norm,gradient_norm;
 	float gT_g;
 	float pU_norm;
@@ -407,11 +406,11 @@ void dogleg(){
 		printf("Df = %f , e = 0.1\n",sqrt( gradient[0]*gradient[0] + gradient[1]*gradient[1] + gradient[2]*gradient[2] + gradient[3]*gradient[3] ) );
 
 		// if ||gradient|| < 0.1 stop
-        if( sqrt( gradient[0]*gradient[0] + gradient[1]*gradient[1] + gradient[2]*gradient[2] + gradient[3]*gradient[3] ) < 0.1  ){
+        	if( sqrt( gradient[0]*gradient[0] + gradient[1]*gradient[1] + gradient[2]*gradient[2] + gradient[3]*gradient[3] ) < 0.1  ){
 			printf("final x: x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f \n",x[0],x[1],x[2],x[3]);            
 			printf("end\n");
-            break;
-        }
+        		break;
+        	}
 
 		getDirection(x,radious);
 		//printf("get direction: p[0] = %f , p[1] = %f , p[2] = %f, p[3] = %f \n",p[0],p[1],p[2],p[3]);
@@ -424,9 +423,6 @@ void dogleg(){
 		r = df/dm;
 		printf("r=%f , df=%f , dm=%f\n",r,df,dm);
 
-		/*if(r<0 || r>1){
-			continue;
-		}*/
 
 		if(r<0.25){
 			radious=0.25*radious;
@@ -482,11 +478,11 @@ void BFGS(){
 	float x[4] = {1,1,1,1};			// start point is HERE!!!
 	float next_x[4] = {0};
 	float next_gradient[4] = {0};
-	float s[4] = {0};				// s = Xk+1 - Xk
-	float y[4] = {0};				// y = gradient(Xk+1) - gradient(Xk)
-		float r;					// r = i/(yT*s) 
-	float r_s[4] = {0};				// r_s = r*s
-	float r_y[4] = {0};				// r_y = r*y
+	float s[4] = {0};			// s = Xk+1 - Xk
+	float y[4] = {0};			// y = gradient(Xk+1) - gradient(Xk)
+	float r;				// r = i/(yT*s) 
+	float r_s[4] = {0};			// r_s = r*s
+	float r_y[4] = {0};			// r_y = r*y
 
 
 	float s1[4][4] = {0}; 			// s1 = (I − r*s*yT)H 
@@ -496,7 +492,7 @@ void BFGS(){
 
 //----- the same with line search
     float amax[2] = {0,0.001};
-	float a[2] = {0};
+    float a[2] = {0};
     float f1,f2;
     float c1 = 0.0001;
     float c2 = 0.9;
@@ -505,28 +501,28 @@ void BFGS(){
  
     float curvature_limit;
     float curvature;  
-	int counter=0;
-	int counter2=0;
+    int counter=0;
+    int counter2=0;
     
     FILE *fp;
 	
-	if(	(fp = fopen("BFGS.txt","w")) == NULL){ return ;}
+    if((fp = fopen("BFGS.txt","w")) == NULL){ return ;}
 		
-	while(counter<20){
+    while(counter<20){
         printf("--------------------------- counter = %d  ----------------------------------\n",counter);
 					
         a[0]=amax[0]; a[1]=amax[1];
-		//gradient[0]=0; gradient[1]=0; gradient[2]=0; gradient[3]=0;
+	//gradient[0]=0; gradient[1]=0; gradient[2]=0; gradient[3]=0;
 
         makeGradient(x[0],x[1],x[2],x[3],gradient);
         makePBFGS();
  
        
-		printf(" x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f \n",x[0],x[1],x[2],x[3]);
+	printf(" x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f \n",x[0],x[1],x[2],x[3]);
         printf("gradient:\n");
         printGradient(gradient);
 
-		fprintf(fp,"%d. x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f , f = %f \n",counter,x[0],x[1],x[2],x[3],f(x[0],x[1],x[2],x[3]));
+	fprintf(fp,"%d. x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f , f = %f \n",counter,x[0],x[1],x[2],x[3],f(x[0],x[1],x[2],x[3]));
 
         printf("Df = %f , e = 0.1\n",sqrt( gradient[0]*gradient[0] + gradient[1]*gradient[1] + gradient[2]*gradient[2] + gradient[3]*gradient[3] ) );
         if( sqrt( gradient[0]*gradient[0] + gradient[1]*gradient[1] + gradient[2]*gradient[2] + gradient[3]*gradient[3] ) < 0.01  ){
@@ -536,7 +532,7 @@ void BFGS(){
         }
         
         counter2=0;
-		while(counter2<10){
+	while(counter2<10){
             printf("\n start: counter2 = %d \n",counter2);
             
             aj = Bisection(a[0],a[1]);
@@ -549,37 +545,37 @@ void BFGS(){
             printf("next_gradient:\n");
             printGradient(next_gradient);
 
-			// f1 = f(x+a*p)
+	    // f1 = f(x+a*p)
             f1 = f(next_x[0],next_x[1],next_x[2],next_x[3]);                
-			// f2 = f(x) + c1*a*gardientT*p            
-			f2 = f(x[0],x[1],x[2],x[3]) + c1*aj*(gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3]);        
+	    // f2 = f(x) + c1*a*gardientT*p            
+	    f2 = f(x[0],x[1],x[2],x[3]) + c1*aj*(gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3]);        
             printf("f1 = %f\n",f1);
             printf("f2 = %f , c1*aj*... = %f , c1 = %f , aj = %f , ... = %f\n",f2,c1*aj*(gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3]),c1,aj,gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3]);   
     
             if(f1>=f2 && abs_(f1-f2)>0.01){  //f1>=f2   Armijo: f1 must be < f2
                 printf("i am in if\n");
-				printf("f1-f2 = %f\n",abs_(f2-f1));
+		printf("f1-f2 = %f\n",abs_(f2-f1));
                 a[1] = aj;
                 printf("a[0] = %f , a[1] = %f\n",a[0],a[1]);
             }else{
                 printf("i am in else\n");
                 
-				// curvature = gradient(x+a*p)T*p
+		// curvature = gradient(x+a*p)T*p
                 curvature = next_gradient[0]*p[0] + next_gradient[1]*p[1] + next_gradient[2]*p[2] + next_gradient[3]*p[3];
-				// corvature_limit = c2*gradient(x)T*p                 
-				curvature_limit = c2*( gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3] ); 
+		// corvature_limit = c2*gradient(x)T*p                 
+		curvature_limit = c2*( gradient[0]*p[0] + gradient[1]*p[1] + gradient[2]*p[2] + gradient[3]*p[3] ); 
                 printf("curvature = %f , curvature_limit = %f \n",curvature,curvature_limit);
 
                 
                 if( (curvature>=curvature_limit && curvature<=-curvature_limit) || curvature==curvature_limit){       // strong conditions
                     printf("wolfe conditions ok\n");
-					printf("curvature = %f , curvature_limit = %f ,  curvature_limit = %f \n",curvature,curvature_limit,-curvature_limit);
+		    printf("curvature = %f , curvature_limit = %f ,  curvature_limit = %f \n",curvature,curvature_limit,-curvature_limit);
                     printf("next x: x[0] = %f , x[1] = %f , x[2] = %f, x[3] = %f \n",x[0],x[1],x[2],x[3]);
                     break;
                 }
                 if(curvature > -curvature_limit ){
                     printf("curvature > -curvature_limit = %f>%f => up\n",curvature,-curvature_limit);
-					a[1] = aj;                    
+		    a[1] = aj;                    
                     printf("a[0] = %f , a[1] = %f\n",a[0],a[1]);
                 }
                 if(curvature < curvature_limit){
@@ -588,7 +584,7 @@ void BFGS(){
                     printf("a[0] = %f , a[1] = %f\n",a[0],a[1]);
                 }              
             } 
-			counter2++;
+	    counter2++;
         }
 		
 
